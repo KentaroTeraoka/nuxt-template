@@ -1,5 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  css: ['~/assets/scss/reset.scss', '~/assets/scss/base.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use '~/assets/scss/variables.scss' as *;
+          `
+        }
+      }
+    }
+  }
 })
